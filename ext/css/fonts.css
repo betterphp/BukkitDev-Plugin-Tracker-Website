@@ -1,0 +1,15 @@
+/*
+ * http://www.fontsquirrel.com/fonts/Bitstream-Vera-Sans
+ */
+
+@font-face {
+	font-family:	'bitstream_vera_sansroman';
+	font-weight:	normal;
+	font-style:		normal;
+	src:			url('../fonts/Vera-webfont.eot');
+	src:			url('../fonts/Vera-webfont.eot?#iefix') format('embedded-opentype'),
+					url('../fonts/Vera-webfont.woff') format('woff'),
+					url('../fonts/Vera-webfont.ttf') format('truetype'),
+					url('../fonts/Vera-webfont.svg#bitstream_vera_sansroman') format('svg');
+}
+
