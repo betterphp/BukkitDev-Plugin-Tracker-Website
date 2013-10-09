@@ -1,10 +1,28 @@
 <?php
 
+/**
+ * Represents a project on BukkitDev.
+ */
 class project {
 	
+	/**
+	 * @var int The projects ID.
+	 */
 	private $id;
+	
+	/**
+	 * @var string The URL slug.
+	 */
 	private $slug;
+	
+	/**
+	 * @var string The most recent title.
+	 */
 	private $title;
+	
+	/**
+	 * @var int The first time this project was seen.
+	 */
 	private $first_seen;
 	
 	public function __construct($id, $slug, $title, $first_seen){
@@ -14,18 +32,39 @@ class project {
 		$this->first_seen = $first_seen;
 	}
 	
+	/**
+	 * Gets the internal ID of the project.
+	 * 
+	 * @return int The ID.
+	 */
 	public function get_id(){
 		return $this->id;
 	}
 	
+	/**
+	 * Gets the URL slug of the project.
+	 * 
+	 * @return string The slug.
+	 */
 	public function get_slug(){
 		return $this->slug;
 	}
 	
+	/**
+	 * Gets the most recent title of the project.
+	 * 
+	 * @return string The title.
+	 */
 	public function get_title(){
 		return $this->title;
 	}
 	
+	/**
+	 * Fetches download stats on the files linked to this project.
+	 * 
+	 * @param int $days The number of days worth of data to process.
+	 * @return array An array of file download stats.
+	 */
 	public function get_file_stats($days = 0){
 		$mysql = mysql_connection::get_connection();
 		
@@ -93,6 +132,12 @@ class project {
 		return $files;
 	}
 	
+	/**
+	 * Fetches a project by a slug.
+	 * 
+	 * @param string $slug The slug
+	 * @return project The project or false on failure.
+	 */
 	public static function get_by_slug($slug){
 		$mysql = mysql_connection::get_connection();
 		
@@ -135,6 +180,12 @@ class project {
 		}
 	}
 	
+	/**
+	 * Fetches a project by ID.
+	 * 
+	 * @param int $id The ID.
+	 * @return project The project or failse on failure.
+	 */
 	public static function get_by_id($id){
 		$mysql = mysql_connection::get_connection();
 		
@@ -161,6 +212,12 @@ class project {
 		return new self(intval($row['project_id']), $row['project_slug'], $row['project_title'], intval($row['project_first_seen']));
 	}
 	
+	/**
+	 * Fetches the most popular projects based on the number of downloads a single file has received.
+	 * 
+	 * @param int $limit The number of projects to return.
+	 * @return array An array of projects.
+	 */
 	public static function get_most_popular($limit = 10){
 		$mysql = mysql_connection::get_connection();
 		

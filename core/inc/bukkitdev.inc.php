@@ -1,7 +1,16 @@
 <?php
 
+/**
+ * Represents the dev.bukkit.org site.
+ */
 class bukkitdev {
 	
+	/**
+	 * Fetches information on a project
+	 * 
+	 * @param string $slug The URL slug of the project.
+	 * @return array An array of information or false on failure.
+	 */
 	public static function fetch_project_info($slug){
 		$url = "https://api.curseforge.com/servermods/projects?search={$slug}";
 		$data = @file_get_contents($url, false, stream_context_create(array(
