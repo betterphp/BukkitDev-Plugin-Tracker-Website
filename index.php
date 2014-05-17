@@ -8,8 +8,7 @@ include('core/init.inc.php');
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="shurtcut icon" type="image/x-icon" href="ext/img/favicon.ico" />
-		<link rel="stylesheet" type="text/css" media="all" href="ext/css/fonts.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="ext/css/main.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="ext/css/build/style.min.css" />
 		<title>BukkitDev Plugin Tracker</title>
 	</head>
 	<body>

@@ -5,3 +5,9 @@
 
 # System files
 /core/config.inc.php
+
+# NodeJS
+node_modules
+
+# Built files
+ext/css/build
